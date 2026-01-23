@@ -280,7 +280,7 @@
 
         // Listener Firebase (Real-time)
         onValue(ordersRef, (snapshot) => {
-            statusEl.innerHTML = "🟢 Real-time Terhubung";
+            statusEl.innerHTML = "🟢 Terhubung";
             statusEl.classList.replace('bg-white/20', 'bg-emerald-500/40');
             
             rawData = snapshot.val();
