@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -220,7 +221,9 @@
                                       (paket === 'tipe 2' ? 'bg-orange-100 text-orange-700' : 'bg-emerald-100 text-emerald-700');
                     
                     const driveLink = driveLinks[className] || "https://drive.google.com/";
-                    const waUrl = `https://wa.me/${formatPhone(order.no_hp)}?text=${encodeURIComponent(`Halo *${namaCaps}*, kamu belum upload foto di: ${driveLink}`)}`;
+                    const waUrl = `https://wa.me/${formatPhone(order.no_hp)}?text=${encodeURIComponent(
+  `Halo *${namaCaps}*, kamu belum upload foto sampai saat ini.\n\nSilahkan upload di: ${driveLink}`
+)}`;
 
                     // Generate Dropdown Options
                     let options = `<option value="0">Rp 0 (Belum)</option>`;
