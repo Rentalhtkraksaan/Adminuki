@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -193,17 +194,26 @@
                     if(isDouble) stats.duplicates++;
 
                     const paket = (order.pilihan_foto || "").toLowerCase();
-                    let hargaMaksimal = 0;
-                    if (paket.includes("tipe 1") || paket.includes("2 id card")) { 
-                        hargaMaksimal = (paket.includes("12k")) ? 12000 : 7000; stats.satuan++; 
-                    } else if (paket.includes("tipe 2") || paket.includes("1 full set")) {
-                        hargaMaksimal = 12000; stats.satuan++; stats.logistik += 1;
-                    } else if (paket.includes("bundling")) {
-                        stats.bundling++;
-                        if (paket.includes("22k")) { hargaMaksimal = 22000; stats.logistik += 2; }
-                        else if (paket.includes("17k")) { hargaMaksimal = 17000; stats.logistik += 1; }
-                        else if (paket.includes("12k")) { hargaMaksimal = 12000; }
-                    }
+                    // Cari bagian ini di fungsi renderTable file Admin
+let hargaMaksimal = 0;
+
+if (paket.includes("holder & yoyo")) {
+    // Tambahkan kondisi ini
+    hargaMaksimal = 7000;
+    stats.satuan++; 
+} else if (paket.includes("tipe 1") || paket.includes("2 id card")) { 
+    hargaMaksimal = (paket.includes("12k")) ? 12000 : 7000; 
+    stats.satuan++; 
+} else if (paket.includes("tipe 2") || paket.includes("1 full set")) {
+    hargaMaksimal = 12000; 
+    stats.satuan++; 
+    stats.logistik += 1;
+} else if (paket.includes("bundling")) {
+    stats.bundling++;
+    if (paket.includes("22k")) { hargaMaksimal = 22000; stats.logistik += 2; }
+    else if (paket.includes("17k")) { hargaMaksimal = 17000; stats.logistik += 1; }
+    else if (paket.includes("12k")) { hargaMaksimal = 12000; }
+}
                     stats.omset += hargaMaksimal;
                     const bayarSekarang = parseInt(order.paymentAmount || 0);
                     stats.terkumpul += bayarSekarang;
@@ -274,14 +284,15 @@
 
         searchInput.addEventListener('input', (e) => renderTable(rawData, e.target.value));
 
-        window.togglePhotoStatus = (id, status) => update(ref(db, 'orders_batch2/' + id), { isUploaded: status });
-        window.updatePaymentAmount = (id, amount) => update(ref(db, 'orders_batch2/' + id), { paymentAmount: parseInt(amount) });
-        window.deleteOrder = (id, nama) => {
-            if (confirm(`Hapus data ${nama}?`)) {
-                const pass = prompt(`Ketik "delete" untuk menghapus:`);
-                if (pass && pass.toLowerCase() === "delete") remove(ref(db, 'orders_batch2/' + id));
-            }
-        };
+        // Di bagian paling bawah script
+window.togglePhotoStatus = (id, status) => update(ref(db, 'orders_batch3/' + id), { isUploaded: status });
+window.updatePaymentAmount = (id, amount) => update(ref(db, 'orders_batch3/' + id), { paymentAmount: parseInt(amount) });
+window.deleteOrder = (id, nama) => {
+    if (confirm(`Hapus data ${nama}?`)) {
+        const pass = prompt(`Ketik "delete" untuk menghapus:`);
+        if (pass && pass.toLowerCase() === "delete") remove(ref(db, 'orders_batch3/' + id));
+    }
+};
     </script>
 </body>
 </html>
