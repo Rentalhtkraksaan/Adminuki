@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Recap System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hidden-content { display: none; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 overflow-hidden">
+
+    <div id="welcomeScreen" class="max-w-md w-full text-center animate-in fade-in duration-700">
+        <div class="mb-8">
+            <div class="inline-block p-4 rounded-3xl bg-indigo-500/10 mb-6 ring-1 ring-indigo-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">Selamat Datang</h1>
+            <p class="text-slate-400 leading-relaxed px-6">Panel khusus Admin Recap Foto. Silakan verifikasi identitas Anda untuk mengelola database.</p>
+        </div>
+
+        <button onclick="requestPass()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 px-10 rounded-2xl shadow-lg shadow-indigo-500/20 transition-all transform active:scale-95 w-full md:w-auto">
+            MASUKKAN SANDI
+        </button>
+    </div>
+
+    <div id="dashboard" class="hidden-content max-w-2xl w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-bold text-white">Pilih Database</h2>
+            <p class="text-emerald-400 text-sm font-mono mt-2 flex items-center justify-center gap-2">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> 
+                AKSES DITERIMA
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 px-4">
+            <a href="batch1.html" class="glass-card p-8 rounded-3xl text-left hover:bg-indigo-600/10 transition-all border-t border-white/10 group">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                </div>
+                <h3 class="text-white font-bold text-xl mb-1">BATCH 1</h3>
+                <p class="text-slate-500 text-sm">Lihat arsip dan data lama</p>
+            </a>
+
+            <a href="batch2.html" class="glass-card p-8 rounded-3xl text-left hover:bg-indigo-600/10 transition-all border-t border-white/10 group">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                </div>
+                <h3 class="text-white font-bold text-xl mb-1">BATCH 2</h3>
+                <p class="text-slate-500 text-sm">Lihat arsip dan data lama</p>
+            </a>
+
+            <a href="batch3.html" class="glass-card p-8 rounded-3xl text-left hover:bg-emerald-600/10 transition-all border-t border-white/10 group">
+                <div class="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h3 class="text-white font-bold text-xl mb-1">BATCH 3</h3>
+                <p class="text-slate-500 text-sm italic">Database aktif berjalan</p>
+            </a>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button onclick="location.reload()" class="text-slate-500 hover:text-white text-xs font-bold tracking-widest transition-colors uppercase">Keluar Sesi</button>
+        </div>
+    </div>
+
+    <script>
+        function requestPass() {
+            const passwordDitetapkan = "aditmanis"; // Ganti sandi di sini
+            const input = prompt("Masukkan Sandi Keamanan:");
+
+            if (input === passwordDitetapkan) {
+                // Sembunyikan Welcome Screen
+                document.getElementById('welcomeScreen').style.display = 'none';
+                // Tampilkan Dashboard
+                const dashboard = document.getElementById('dashboard');
+                dashboard.classList.remove('hidden-content');
+                dashboard.classList.add('animate-in', 'slide-in-from-bottom-10', 'duration-500', 'fade-in');
+            } else if (input !== null) {
+                alert("Sandi Salah! Anda tidak memiliki izin.");
+            }
+        }
+    </script>
+</body>
+
+</html>
